@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enhanced HTML5 Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 1rem;
+  }
+  header, main, footer {
+    max-width: 600px;
+    margin: auto;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.3rem;
+    box-sizing: border-box;
+  }
+  fieldset {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+  button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Welcome to Our Enhanced HTML5 Form</h1>
+  <nav>
+    <ul>
+      <li><a href="#user-info">User Information</a></li>
+      <li><a href="#preferences">Preferences</a></li>
+      <li><a href="#summary">Summary Table</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="user-info" aria-labelledby="user-info-heading">
+    <h2 id="user-info-heading">User Information</h2>
+    <form action="/submit" method="POST" autocomplete="on" novalidate>
+      <label for="username">Username (readonly):</label>
+      <input type="text" id="username" name="username" value="johndoe" readonly autocomplete="username" />
+
+      <label for="firstname">First Name <span aria-hidden="true">*</span>:</label>
+      <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required autocomplete="given-name" pattern="[A-Za-z\s]+" title="Letters and spaces only" />
+
+      <label for="lastname">Last Name <span aria-hidden="true">*</span>:</label>
+      <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required autocomplete="family-name" />
+
+      <label for="email">Email Address <span aria-hidden="true">*</span>:</label>
+      <input type="email" id="email" name="email" placeholder="example@mail.com" required autocomplete="email" />
+
+      <label for="password">Password <span aria-hidden="true">*</span>:</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required minlength="8" autocomplete="new-password" />
+
+      <label for="birthday">Date of Birth:</label>
+      <input type="date" id="birthday" name="birthday" max="2025-08-01" autocomplete="bday" />
+
+      <label for="favoritecolor">Favorite Color:</label>
+      <input type="color" id="favoritecolor" name="favoritecolor" value="#ff0000" />
+
+      <fieldset>
+        <legend>Gender <span aria-hidden="true">*</span>:</legend>
+        <input type="radio" id="gender-m" name="gender" value="male" required />
+        <label for="gender-m">Male</label>
+
+        <input type="radio" id="gender-f" name="gender" value="female" />
+        <label for="gender-f">Female</label>
+
+        <input type="radio" id="gender-o" name="gender" value="other" />
+        <label for="gender-o">Other</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Interests (Select all that apply):</legend>
+        <input type="checkbox" id="interest-coding" name="interests" value="coding" />
+        <label for="interest-coding">Coding</label>
+
+        <input type="checkbox" id="interest-music" name="interests" value="music" />
+        <label for="interest-music">Music</label>
+
+        <input type="checkbox" id="interest-sports" name="interests" value="sports" />
+        <label for="interest-sports">Sports</label>
+      </fieldset>
+
+      <label for="experience">Years of Experience (0-50):</label>
+      <input type="number" id="experience" name="experience" min="0" max="50" placeholder="e.g., 5" />
+
+      <label for="satisfaction">Satisfaction Level:</label>
+      <input type="range" id="satisfaction" name="satisfaction" min="0" max="10" step="1" value="5" />
+      <output for="satisfaction" id="satisfactionOutput">5</output>
+
+      <label for="country">Country <span aria-hidden="true">*</span>:</label>
+      <select id="country" name="country" required autocomplete="country-name">
+        <option value="" disabled selected>Select your country</option>
+        <option value="USA">United States</option>
+        <option value="NG">Nigeria</option>
+        <option value="GB">United Kingdom</option>
+        <option value="IN">India</option>
+        <option value="AU">Australia</option>
+      </select>
+
+      <label for="about">About Yourself:</label>
+      <textarea id="about" name="about" rows="4" placeholder="Tell us something about yourself..." autocomplete="off"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section id="preferences" aria-labelledby="pref-heading">
+    <h2 id="pref-heading">Preferences List</h2>
+    <p>Choose your preferences from the following categories:</p>
+    <ul>
+      <li>Food Preferences
+        <ul>
+          <li>Vegetarian</li>
+          <li>Non-Vegetarian</li>
+          <li>Vegan</li>
+        </ul>
+      </li>
+      <li>Technology Interests
+        <ul>
+          <li>Web Development</li>
+          <li>Mobile Apps</li>
+          <li>AI & Machine Learning</li>
+        </ul>
+      </li>
+      <li>Hobbies
+        <ul>
+          <li>Reading</li>
+          <li>Traveling</li>
+          <li>Photography</li>
+        </ul>
+      </li>
+    </ul>
+
+    <img src="https://via.placeholder.com/600x200.png?text=Sample+Form+Image" alt="Sample graphic illustrating form usage" />
+  </section>
+
+  <section id="summary" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">User Summary Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>User Input</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Username</td>
+          <td>johndoe (readonly)</td>
+        </tr>
+        <tr>
+          <td>Full Name</td>
+          <td>John Doe</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>john.doe@example.com</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>Male</td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td>United States</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Enhanced Form Example. All rights reserved.</p>
+</footer>
+
+<script>
+  // Update output for range input
+  const satisfaction = document.getElementById('satisfaction');
+  const output = document.getElementById('satisfactionOutput');
+  output.textContent = satisfaction.value;
+  satisfaction.addEventListener('input', () => {
+    output.textContent = satisfaction.value;
+  });
+</script>
+</body>
+</html>
